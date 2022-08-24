@@ -28,14 +28,15 @@
         </div>
       </section>
 
-      <div class="m-5 p-5 d-flex flex-row">
-        <input type="text"class="form-control" placeholder="ENTER THE BOOK NAME" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-        <button type="button" class="btn btn-light">SEARCH</button>
+      <div class="input-group mb-3 p-5">
+        <input type="text" class="form-control" placeholder="ENTER THE BOOK NAME" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">SEARCH</button>
+        </div>
       </div>
-
     
 
-      <div class="container booksDisplay">
+      <div class="container">
         <div class="row">
           <!--books-->
         </div>
@@ -64,13 +65,17 @@
       //7. Add a search bar. When the user types more than 3 characters, filter the content of the API response to only display the books with a matching (or partially matching) title (hint: use .filter())
 
 
-      const grid = document.querySelector(".container > .row");
+     
 
       const displayBooks = async () => {
        try {const response = await fetch("https://striveschool-api.herokuapp.com/books");
             const books = await response.json();
 
+
+            const grid = document.querySelector(".container > .row");
+
             books.forEach((book) => {
+
             const col = document.createElement("div");
             col.className = "col-md-3";
 
